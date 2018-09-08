@@ -1,0 +1,54 @@
+#logo {
+  height: 10vh;
+  width: auto;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-family: 'Kanit', sans-serif;
+}
+
+#display {
+  grid-column: 1 / -1;
+  height: 10vh;
+  background-color: black;
+  color: white;
+  text-align: right;
+}
+
+.calculator {
+  display: grid;
+  height: 50vh;
+  width: 50vh;
+  background-color: #75C856;
+}
+
+.calc-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+#clear {
+  grid-column: 1 / 3;
+  height: 5vh;
+  outline: 1px solid black;
+}
+
+#back {
+  grid-column: 3 / -1;
+  height: 5vh;
+  outline: 1px solid black;
+}
+
+.calc-btn {
+  height: 10vh;
+  width: 10vh;
+  outline: 1px solid black;
+}
+
+.history {
+  height: 50vh;
+  width: 50vh;
+  color: black;
+}

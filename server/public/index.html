@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Calculator</title>
+  <script src="/socket.io/socket.io.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+    crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+  <header>
+    <img id="logo" src="vendors/sezzle-logo.png" alt="sezzle logo">
+  </header>
+  <div class="container">
+    <div class="calculator">
+      <div id="display"></div>
+      <div class="calc-row">
+        <div id="clear">Clear</div>
+        <div id="back">Back</div>
+      </div>
+      <div class="calc-row">
+        <div class="calc-btn num-btn" id="7">7</div>
+        <div class="calc-btn num-btn" id="8">8</div>
+        <div class="calc-btn num-btn" id="9">9</div>
+        <div class="calc-btn math-btn" id="/">/</div>
+      </div>
+      <div class="calc-row">
+        <div class="calc-btn num-btn" id="4">4</div>
+        <div class="calc-btn num-btn" id="5">5</div>
+        <div class="calc-btn num-btn" id="6">6</div>
+        <div class="calc-btn math-btn" id="*">*</div>
+      </div>
+      <div class="calc-row">
+        <div class="calc-btn num-btn" id="1">1</div>
+        <div class="calc-btn num-btn" id="2">2</div>
+        <div class="calc-btn num-btn" id="3">3</div>
+        <div class="calc-btn math-btn" id="-">-</div>
+      </div>
+      <div class="calc-row">
+        <div class="calc-btn num-btn" id=".">.</div>
+        <div class="calc-btn num-btn" id="0">0</div>
+        <div class="calc-btn equals" id="=">=</div>
+        <div class="calc-btn math-btn" id="+">+</div>
+      </div>
+    </div> <!-- END Calculator-->
+    <div class="history">
+    </div>
+  </div><!-- END Container -->
+  <script src="scripts/client.js"></script>
+</body>
+
+</html>
