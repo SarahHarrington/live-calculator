@@ -2,20 +2,15 @@ console.log('JS loaded');
 const socket = io();
 
 const numBtns = [...document.querySelectorAll('.num-btn')];
-const mathBtns = [...document.querySelectorAll('.math-btn')];
 const clearBtn = document.querySelector('#clear');
 const backBtn = document.querySelector('#back');
 const display = document.querySelector('#display');
 const equalBtn = document.querySelector('.equals');
 const history = document.querySelector('.history');
-let calculation = [""];
+let calculation = [];
 
 numBtns.forEach((btn) => {
   btn.addEventListener('click', number);
-})
-
-mathBtns.forEach((btn) => {
-  btn.addEventListener('click', operator)
 })
 
 socket.on('newClientConnected', (calcHistory) => {
@@ -41,23 +36,22 @@ socket.on('updateHistory', (calcHistory) => {
 })
 
 function number(e) {
-  console.log(e)
-  let number = e.target.id;
+  let btn = e.target.id;
+  calculation.push(btn);
   console.log(calculation);
-  calculation[calculation.length-1] += number;
-  updateDisplay();
-}
-
-function operator(e) {
-  calculation.push(e.target.id);
-  calculation.push("");
   updateDisplay();
 }
 
 function calculateTheString() {
-  console.log('clicked the equals button');
-  socket.emit('calculationTime', calculation);
-  calculation = [''];
+  let a = calculation[calculation.length -1];
+  console.log(calculation[calculation.length -1]);
+  if (a === '/' || a === '*' || a === '-' || a === '+') {
+    return;
+  }
+  else {
+    socket.emit('calculationTime', calculation);
+    calculation = [];
+  }
 }
 
 function updateDisplay() {
@@ -66,13 +60,11 @@ function updateDisplay() {
 
 function clearCalculator() {
   display.innerHTML = '';
-  calculation = [''];
+  calculation = [];
 }
 
 function backButton() {
-  var calcString = calculation.pop();
-  var sbString = calcString.slice(0, calcString.length-1);
-  calculation.push(sbString);
+  calculation.pop();
   updateDisplay();
 }
 
