@@ -44,8 +44,8 @@ function number(e) {
 
 function calculateTheString() {
   let a = calculation[calculation.length -1];
-  console.log(calculation[calculation.length -1]);
-  if (a === '/' || a === '*' || a === '-' || a === '+') {
+  let b = calculation[0];
+  if ((a === '/' || a === '*' || a === '-' || a === '+') || ( b === '/' || b === '*' || b === '+' )) {
     return;
   }
   else {
