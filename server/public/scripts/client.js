@@ -43,14 +43,16 @@ function number(e) {
 }
 
 function calculateTheString() {
-  let a = calculation[calculation.length -1];
-  let b = calculation[0];
-  if ((a === '/' || a === '*' || a === '-' || a === '+') || ( b === '/' || b === '*' || b === '+' )) {
-    return;
-  }
-  else {
-    socket.emit('calculationTime', calculation);
-    calculation = [];
+  if (calculation.length > 1) {
+    let a = calculation[calculation.length - 1];
+    let b = calculation[0];
+    if ((a === '/' || a === '*' || a === '-' || a === '+') || (b === '/' || b === '*' || b === '+')) {
+      return;
+    }
+    else {
+      socket.emit('calculationTime', calculation);
+      calculation = [];
+    }
   }
 }
 
